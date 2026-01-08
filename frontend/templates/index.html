@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Manual Intelligence</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-badge">Document-Grounded AI</div>
+        <h1>Product Manual Intelligence</h1>
+        <p class="subtitle">Verified answers and comparisons directly from official product manuals</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Chatbot Card (PRIMARY FEATURE) -->
+        <div class="chatbot-card">
+            <div class="card-header">
+                <h2 class="card-title">💬 Ask About Product Specifications</h2>
+                <p class="card-description">Get instant answers with source verification from official product manuals</p>
+            </div>
+
+            <!-- Product Selection -->
+            <div class="product-selector">
+                <label for="product-select" class="form-label">Select Product</label>
+                <select id="product-select">
+                    <option value="">Loading products...</option>
+                </select>
+            </div>
+
+            <!-- Question Input -->
+            <div class="question-input-group">
+                <label for="question-input" class="form-label">Your Question</label>
+                <textarea 
+                    id="question-input" 
+                    placeholder="Ask a question about official specifications (e.g., power consumption, warranty, supported features, battery life, dimensions...)"
+                    rows="3"
+                ></textarea>
+            </div>
+
+            <!-- Ask Button -->
+            <button id="ask-button" class="btn-primary">Ask</button>
+
+            <!-- Chat Display -->
+            <div id="chat-display" class="chat-display">
+                <!-- Chat messages will appear here -->
+            </div>
+        </div>
+
+        <!-- Comparison Card (SECONDARY FEATURE) -->
+        <div class="comparison-card">
+            <div id="comparison-header" class="comparison-header">
+                <div class="comparison-title-group">
+                    <span class="comparison-icon">🔄</span>
+                    <div>
+                        <div class="comparison-title">Compare Products <span class="comparison-subtitle">(Optional)</span></div>
+                    </div>
+                </div>
+                <div id="toggle-icon" class="toggle-icon">▼</div>
+            </div>
+
+            <div id="comparison-content" class="comparison-content">
+                <div class="product-grid">
+                    <div>
+                        <label for="product-a" class="form-label">Product A</label>
+                        <select id="product-a">
+                            <option value="">Loading products...</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="product-b" class="form-label">Product B</label>
+                        <select id="product-b">
+                            <option value="">Loading products...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="comparison-spec" class="form-label">Specification to Compare</label>
+                    <select id="comparison-spec" style="width: 100%; padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 15px; margin-bottom: 16px;">
+                        <option value="all">Compare All Specifications</option>
+                        <option value="RAM">RAM</option>
+                        <option value="Processor">Processor</option>
+                        <option value="Battery Capacity">Battery Capacity</option>
+                        <option value="Screen Size">Screen Size</option>
+                        <option value="Price">Price (India)</option>
+                        <option value="Weight">Weight</option>
+                        <option value="Front Camera">Front Camera</option>
+                        <option value="Back Camera">Back Camera</option>
+                    </select>
+                </div>
+
+                <button id="compare-button" class="btn-primary">Compare</button>
+
+                <div id="comparison-result" class="comparison-result hidden"></div>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            <div class="disclaimer-title">🔐 Trust & Transparency</div>
+            <p class="disclaimer-text">
+                All answers are generated strictly from official product manuals. No reviews, opinions, or external data are used. 
+                Every response includes the original source text for verification.
+            </p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
